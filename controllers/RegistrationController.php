@@ -9,8 +9,8 @@ use yii\web\Controller;
 class RegistrationController extends Controller
 {
 
-    /**
-     * @var $model 
+    /** Форма регистрации
+     *  Либо сама регистрация, если выполняется POST-запрос
      */
     public function actionIndex()
     {
