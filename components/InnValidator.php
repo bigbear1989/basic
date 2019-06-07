@@ -4,6 +4,7 @@ namespace app\components;
 
 use yii\validators\Validator;
 
+/** Валидация ИНН */
 class InnValidator extends Validator
 {
 

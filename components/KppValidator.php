@@ -5,7 +5,7 @@ namespace app\components;
 
 use yii\validators\Validator;
 
-
+/** Валидация КПП */
 class KppValidator extends Validator
 {
     public function validateAttribute($model, $attribute)
