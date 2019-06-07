@@ -22,7 +22,7 @@ class RegistrationController extends Controller
         if ($request->isPost && $request->post('action') == Registration::C_ACTION_REGISTRATION) {
             $model->load($request->post(), 'Registration');
             if ($model->validate()) {
-                return $this->render('success');
+                return $this->render('success', ['model' => $model]);
             }
         }
         return $this->render('index', ['model' => $model]);
