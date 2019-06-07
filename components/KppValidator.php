@@ -56,7 +56,7 @@ class KppValidator extends Validator
             messages.push(message);
             return false;
         } else {
-            return true
+            return true;
         }
 JS;
     }

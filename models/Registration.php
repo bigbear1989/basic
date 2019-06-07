@@ -8,34 +8,42 @@ use yii\base\Model;
 
 class Registration extends Model
 {
-    /** Регистрация
-     * 
-     */
+
     const C_ACTION_REGISTRATION = 'C_ACTION_REGISTRATION';
 
-    /** Электронная почта
+    /**
+     * Электронная почта
+     *
      * @var string
      */
     public $email;
 
-    /** Пароль
+    /** 
+     * Пароль
+     * 
      * @var string
      */
     public $password;
 
-    /** Наименование организации
+    /**
+     *  Наименование организации
+     * 
      * @var string
      */
     public $organizationName;
 
-    /** ИНН
+    /** 
+     * ИНН
      * ФЛ (ИП) - 12 символов
      * ЮЛ - 10 символов
+     * 
      * @var int
      */
     public $inn;
 
-    /** КПП
+    /** 
+     * КПП
+     * 
      * @var string
      */
     public $kpp = false;

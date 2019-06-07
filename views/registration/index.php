@@ -1,13 +1,14 @@
 <?php
 
-/**
- * @var $this \yii\web\View
- * @var $model \app\models\Registration
- */
-
-use app\models\Registration;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\models\Registration;
+use yii\web\View;
+
+/**
+ * @var View $this
+ * @var Registration $model
+ */
 
 $this->title = 'Форма регистрации';
 
@@ -17,7 +18,6 @@ echo Html::beginTag('div', ['class' => ['col-md-6']]);
 echo Html::tag('h3', 'Регистрация представителя организации');
 echo Html::tag('hr');
 echo Html::tag('i', '* Обязательно', ['class' => 'text-danger']);
-
 
 $form = ActiveForm::begin([]);
 echo Html::hiddenInput('action', Registration::C_ACTION_REGISTRATION);
@@ -34,7 +34,7 @@ echo $form->field($model, 'organizationName')
 
 echo $form->field($model, 'inn')
     ->label('ИНН <i class="text-danger">*</i>')
-    // валидные 10- и 12- значные ИНН
+    # валидные 10- и 12- значные ИНН
     ->hint('Напр. 1234567894, 526317984689');
 
 echo $form->field($model, 'kpp')
