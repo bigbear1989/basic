@@ -2,7 +2,6 @@
 
 namespace app\components;
 
-use app\models\Registration;
 use yii\validators\Validator;
 
 class InnValidator extends Validator
@@ -11,7 +10,6 @@ class InnValidator extends Validator
     public function init()
     {
         parent::init();
-//        $this->message = 'Некорректный ИНН';
     }
 
     public function validateAttribute($model, $attribute)
@@ -29,21 +27,25 @@ class InnValidator extends Validator
             $check_digit = function ($inn, $coefficients) {
                 $n = 0;
                 foreach ($coefficients as $i => $k) {
-                    $n += $k * (int)$inn{$i};
+                    $n += $k * (int)$inn{
+                        $i};
                 }
                 return $n % 11 % 10;
             };
             switch ($inn_length) {
                 case 10:
                     $n10 = $check_digit($inn, [2, 4, 10, 3, 5, 9, 4, 6, 8]);
-                    if ($n10 === (int)$inn{9}) {
+                    if ($n10 === (int)$inn{
+                        9}) {
                         $result = true;
                     }
                     break;
                 case 12:
                     $n11 = $check_digit($inn, [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
                     $n12 = $check_digit($inn, [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
-                    if (($n11 === (int)$inn{10}) && ($n12 === (int)$inn{11})) {
+                    if (($n11 === (int)$inn{
+                        10}) && ($n12 === (int)$inn{
+                        11})) {
                         $result = true;
                     }
                     break;
@@ -111,6 +113,5 @@ if (!result) {
     return true
 }
 JS;
-
     }
 }

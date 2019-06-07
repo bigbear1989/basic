@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: medvedev.a
- * Date: 07.06.2019
- * Time: 13:35
- */
 
 namespace app\components;
 
@@ -34,7 +28,6 @@ class KppValidator extends Validator
         } else {
             return true;
         }
-
     }
 
     public function clientValidateAttribute($model, $attribute, $view)
@@ -66,8 +59,5 @@ class KppValidator extends Validator
             return true
         }
 JS;
-
-
     }
-
 }

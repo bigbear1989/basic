@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: medvedev.a
- * Date: 06.06.2019
- * Time: 15:14
- */
 
 namespace app\controllers;
 
@@ -15,6 +9,9 @@ use yii\web\Controller;
 class RegistrationController extends Controller
 {
 
+    /**
+     * @var $model 
+     */
     public function actionIndex()
     {
         $request = \Yii::$app->request;
@@ -27,6 +24,4 @@ class RegistrationController extends Controller
         }
         return $this->render('index', ['model' => $model]);
     }
-
-
 }

@@ -2,20 +2,42 @@
 
 namespace app\models;
 
-//use app\components\InnValidator;
 use app\components\InnValidator;
 use app\components\KppValidator;
 use yii\base\Model;
 
 class Registration extends Model
 {
+    /** Регистрация
+     * 
+     */
     const C_ACTION_REGISTRATION = 'C_ACTION_REGISTRATION';
 
+    /** Электронная почта
+     * @var string
+     */
     public $email;
+
+    /** Пароль
+     * @var string
+     */
     public $password;
+
+    /** Наименование организации
+     * @var string
+     */
     public $organizationName;
+
+    /** ИНН
+     * ФЛ (ИП) - 12 символов
+     * ЮЛ - 10 символов
+     * @var int
+     */
     public $inn;
-    public $isIp = false;
+
+    /** КПП
+     * @var string
+     */
     public $kpp = false;
 
     public function rules()
@@ -23,8 +45,10 @@ class Registration extends Model
         return [
             [['email', 'password', 'organizationName', 'inn'], 'required'],
             ['email', 'email'],
-            ['password', 'match', 'pattern' => '/^(?=.*[a-zа-яё]+)[A-Za-zА-Яа-яЁё0-9]+$/',
-                'message' => 'Пароль не соответствует формату, указанному в подсказке'],
+            [
+                'password', 'match', 'pattern' => '/^(?=.*[a-zа-яё]+)[A-Za-zА-Яа-яЁё0-9]+$/',
+                'message' => 'Пароль не соответствует формату, указанному в подсказке'
+            ],
             ['inn', InnValidator::class],
             ['kpp', 'required', 'when' => function ($model) {
                 return strlen($model->inn) == 12;
@@ -32,7 +56,7 @@ class Registration extends Model
                     function (attribute, value) {
                         return $('#registration-inn').val().length == 12;
                     }
-            ", 'message' => 'Необходимо заполнить для ИП'],
+            ", 'message' => 'Необходимо заполнить'],
             ['kpp', KppValidator::class],
         ];
     }
