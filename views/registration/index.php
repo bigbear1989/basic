@@ -41,7 +41,7 @@ echo $form->field($model, 'kpp')
     ->hint('Необходимо заполнить, если организация является ИП');
 
 echo Html::tag('hr');
-echo Html::submitButton('Зарегистрировать', ['class' => 'btn btn-primary center']);
+echo Html::submitButton('Зарегистрировать', ['class' => 'btn btn-primary']);
 
 $form::end();
 
