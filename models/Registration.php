@@ -58,13 +58,15 @@ class Registration extends Model
                 'message' => 'Пароль не соответствует формату, указанному в подсказке'
             ],
             ['inn', InnValidator::class],
+
+            // обязательно, если кол-во символов ИНН = 12 (ИП)
             ['kpp', 'required', 'when' => function ($model) {
                 return strlen($model->inn) == 12;
             }, 'whenClient' => "
                     function (attribute, value) {
                         return $('#registration-inn').val().length == 12;
                     }
-            ", 'message' => 'Необходимо заполнить'],
+            ", 'message' => ''],
             ['kpp', KppValidator::class],
         ];
     }

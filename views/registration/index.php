@@ -12,12 +12,12 @@ use yii\web\View;
 
 $this->title = 'Форма регистрации';
 
-echo Html::beginTag('div', ['class' => ['row']]);
 echo Html::beginTag('div', ['class' => ['col-md-6']]);
 
-echo Html::tag('h3', 'Регистрация представителя организации');
+echo Html::tag('h3', 'Регистрация представителя организации', ['class' => '']);
 echo Html::tag('hr');
-echo Html::tag('i', '* Обязательно', ['class' => 'text-danger']);
+
+echo Html::tag('i', '* Обязательно', ['class' => 'text-danger col']);
 
 $form = ActiveForm::begin([]);
 echo Html::hiddenInput('action', Registration::C_ACTION_REGISTRATION);
@@ -40,10 +40,9 @@ echo $form->field($model, 'inn')
 echo $form->field($model, 'kpp')
     ->hint('Необходимо заполнить, если организация является ИП');
 
-echo Html::tag('hr');
-echo Html::submitButton('Зарегистрировать', ['class' => 'btn btn-primary']);
+echo Html::submitButton('Зарегистрировать', ['class' => 'btn btn-primary ']);
+
 
 $form::end();
 
-echo Html::endTag('div');
 echo Html::endTag('div');
