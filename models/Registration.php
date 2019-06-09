@@ -55,7 +55,7 @@ class Registration extends Model
             ['email', 'email'],
             [
                 'password', 'match', 'pattern' => '/^(?=.*[a-zа-яё]+)[A-Za-zА-Яа-яЁё0-9]+$/',
-                'message' => 'Пароль не соответствует формату, указанному в подсказке'
+                'message' => ''
             ],
             ['inn', InnValidator::class],
 

@@ -14,10 +14,10 @@ $this->title = 'Форма регистрации';
 
 echo Html::beginTag('div', ['class' => ['col-md-6']]);
 
-echo Html::tag('h3', 'Регистрация представителя организации', ['class' => '']);
+echo Html::tag('h3', 'Регистрация представителя организации');
 echo Html::tag('hr');
 
-echo Html::tag('i', '* Обязательно', ['class' => 'text-danger col']);
+echo Html::tag('i', '* Обязательно', ['class' => 'text-danger']);
 
 $form = ActiveForm::begin([]);
 echo Html::hiddenInput('action', Registration::C_ACTION_REGISTRATION);
