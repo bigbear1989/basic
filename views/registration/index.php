@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use app\models\Registration;
 use yii\web\View;
+use yii\grid\GridView;
+use yii\data\SqlDataProvider;
 
 /**
  * @var View $this
@@ -19,7 +21,7 @@ echo Html::tag('hr');
 
 echo Html::tag('i', '* Обязательно', ['class' => 'text-danger']);
 
-$form = ActiveForm::begin([]);
+$form = ActiveForm::begin(['action'=>'/registration/save']);
 echo Html::hiddenInput('action', Registration::C_ACTION_REGISTRATION);
 
 echo $form->field($model, 'email')

@@ -5,6 +5,7 @@ namespace app\controllers;
 
 use app\models\Registration;
 use yii\web\Controller;
+use Yii;
 
 class RegistrationController extends Controller
 {
@@ -15,9 +16,15 @@ class RegistrationController extends Controller
      */
     public function actionIndex()
     {
-        $request = \Yii::$app->request;
         $model = new Registration();
-        if ($request->isPost && $request->post('action') == Registration::C_ACTION_REGISTRATION) {
+        return $this->render('index', ['model' => $model]);
+    }
+
+    public function actionSave()
+    {
+        $model = new Registration();
+        $request = Yii::$app->request;
+        if ($request->isPost) {
             $model->load($request->post(), 'Registration');
             if ($model->validate()) {
                 return $this->render('success', ['model' => $model]);
