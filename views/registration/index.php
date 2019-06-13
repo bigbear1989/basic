@@ -22,7 +22,6 @@ echo Html::tag('hr');
 echo Html::tag('i', '* Обязательно', ['class' => 'text-danger']);
 
 $form = ActiveForm::begin(['action'=>'/registration/save']);
-echo Html::hiddenInput('action', Registration::C_ACTION_REGISTRATION);
 
 echo $form->field($model, 'email')
     ->label('Электронная почта <i class="text-danger">*</i>');

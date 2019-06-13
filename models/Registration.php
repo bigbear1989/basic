@@ -9,8 +9,6 @@ use yii\base\Model;
 class Registration extends Model
 {
 
-    const C_ACTION_REGISTRATION = 'C_ACTION_REGISTRATION';
-
     /**
      * Электронная почта
      *
